@@ -35,7 +35,8 @@ You can customize the game by modifying the list of words, changing the number o
 
 ## Contributors
 
-- Diana Solomko
+- Diana Solomko.
+
 Feel free to contribute to this project or use it as a base to create your own Hangman game!
 
 Have fun playing and enjoy the Hangman game!
