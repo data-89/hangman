@@ -21,15 +21,17 @@ class Hangman:
             if len(guess) == 1 and guess.isalpha():
                 self.guess = guess.lower()
                 self.check_guess(guess)
-                if self.guess in self.word:
-                    for i in range(len(self.word)):
-                        if self.word[i] == self.guess:
-                            self.word_guessed[i] = self.guess
-                            self.list_of_guesses.append(self.guess)
-                            print(self.word_guessed)
-                            if '_' not in self.word_guessed:
-                                print("Congratulations! You've guessed the word:", ''.join(self.word_guessed))
-                                break
+                correct_guess = False
+                for i in range(len(self.word)):
+                    if self.word[i] == self.guess:
+                        self.word_guessed[i] = self.guess
+                        self.list_of_guesses.append(self.guess)
+                        correct_guess = True
+                if correct_guess:
+                    print(self.word_guessed)
+                    if '_' not in self.word_guessed:
+                        print("Congratulations! You've guessed the word:", ''.join(self.word_guessed))
+                        break
                 elif self.guess in self.list_of_guesses:
                      print(f"You already tried that letter - '{self.guess}'. Try a different letter.")
                 else:
@@ -42,4 +44,4 @@ class Hangman:
 word_list = ['banana', 'watermelon', 'apricot', 'peach', 'plum']
 word = random.choice(word_list)
 my_hangman = Hangman(word_list)
-print(my_hangman.ask_for_input())
+my_hangman.ask_for_input()
